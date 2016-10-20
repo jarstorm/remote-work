@@ -1,0 +1,36 @@
+# Meteor packages used by this project, one per line.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+standard-app-packages
+iron:router
+accounts-password
+zimme:bootstrap-growl
+zimme:iron-router-active
+themeteorchef:jquery-validation
+natestrauser:font-awesome
+aslagle:reactive-table
+less
+hckrs:summernote
+rgoomar:bootstrap-validator
+email
+peppelg:on-login-logout
+peppelg:bootstrap-3-modal
+aashu28:jquery-smart-wizard
+spiderable
+natestrauser:animate-css
+meteorhacks:kadira
+mrt:twit
+nemo64:bootstrap
+appcache
+gadicohen:sitemaps
+gadicohen:robots-txt
+sacha:spin
+manuelschoebel:ms-seo
+dfischer:phantomjs
+grove:stripe-checkout
+grove:stripe.js
+grove:stripe-npm
+useraccounts:bootstrap
+
