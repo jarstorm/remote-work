@@ -1,0 +1,36 @@
+<template name="companyIndex">
+	<div class="container">
+	  {{> companyProfile}}
+		<a id="company_index_remove" class="btn btn-danger pull-right">Delete profile</a>
+		<br>
+		<h1>Manage your open positions</h1>
+		
+		
+		<table class="table">
+        <thead>
+          <tr>
+            <th>Job title</th>
+            <th>Contract type</th>
+            <th>Views</th>
+      			<th>Published</th>
+      			<th>Expiration date</th>
+      			<th>Edit</th>
+      			<th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+        {{#each active_jobs}}
+          <tr>
+            <td><a href="/show_job/{{_id}}" class="table_cell_ellipsis_text">{{title}}</a></td>
+            <td>{{contract_type}}</td>
+            <td>{{views}}</td>
+			      <td>{{prettifyDate created_on}}</td>
+			      <td>{{prettifyDate expiration}}</td>
+			      <td><a href="/edit_job/{{_id}}"><span class="fa fa-edit"></span></a></td>
+			      <td><a class="delete_job"><span class="fa fa-trash-o"></span></a></td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+	</div>
+</template>

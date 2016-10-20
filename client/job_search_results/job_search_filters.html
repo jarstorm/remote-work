@@ -1,0 +1,107 @@
+<template name="jobSearchFilters">
+			 <form>
+					<div class="row">					
+						<div class="col-md-9">					  
+								<input type="search" class="form-control" id="job_serach_input" placeholder="IOS developer, Web designer, Marketing..." value="{{text}}"/>
+						</div>
+						<div class="col-md-3">
+							<button value="submit" class="btn btn-primary">Search</button>
+						</div>
+						
+						
+					
+				{{#if getSessionProperty 'advancedSearchDiv' }}
+									
+    				<div class="col-md-9">
+    					<div class=" job-search-filter-row">
+    				    <div class="col-md-2 menu_filter" style="max-width: 140px">
+    				        <p id="officeSupportMenuOption" class="{{getProperty 'selectedOfficeSupportMenuOption'}}">
+    				            <i class="{{getProperty 'iconOfficeSupportMenuOption'}}"></i> Office support 
+    				            <i class="fa fa-caret-down"></i>
+    				        </p>
+        				    {{#if getSessionProperty 'isOfficeSupportSelected'}}
+            				    <ul id="officeSupportMenuList" class="job_search_options_panel">
+            				        <li class="searchMenuOption" selected="selected" icon="fa fa-check greenClass" value="y">Yes</li>
+            				        <li class="searchMenuOption" selected="selected" icon="fa fa-close redClass" value="n">No</li>
+            				        <li class="searchMenuOption" selected="" icon="" value="">All</li>
+            				    </ul>
+        				    {{/if}}
+    				    </div>
+    				    <div class="col-md-2 menu_filter" style="max-width: 80px">
+    				        <p id="travelSupportMenuOption" class="{{getProperty 'selectedTravelSupportMenuOption'}}">
+    				            <i class="{{getProperty 'iconTravelSupportMenuOption'}}"></i> Travel 
+    				            <i class="fa fa-caret-down"></i>
+    				        </p>
+        				    {{#if getSessionProperty 'isTravelSupportSelected'}}
+            				    <ul id="travelSupportMenuList" class="job_search_options_panel">
+            				        <li class="searchMenuOption" selected="selected" icon="fa fa-check greenClass" value="y">Yes</li>
+            				        <li class="searchMenuOption" selected="selected" icon="fa fa-close redClass" value="n">No</li>
+            				        <li class="searchMenuOption" selected="" icon="" value="">All</li>
+            				    </ul>
+        				    {{/if}}
+    				    </div>
+    				    <div class="col-md-2 menu_filter" style="max-width: 90px">
+    				        <p id="trainingSupportMenuOption" class="{{getProperty 'selectedTrainingSupportMenuOption'}}">
+    				            <i class="{{getProperty 'iconTrainingSupportMenuOption'}}"></i> Training
+    				            <i class="fa fa-caret-down"></i>
+    				        </p>
+        				    {{#if getSessionProperty 'isTrainingSupportSelected'}}
+            				    <ul id="trainingSupportMenuList" class="job_search_options_panel">
+            				        <li class="searchMenuOption" selected="selected" icon="fa fa-check greenClass" value="y">Yes</li>
+            				        <li class="searchMenuOption" selected="selected" icon="fa fa-close redClass" value="n">No</li>
+            				        <li class="searchMenuOption" selected="" icon="" value="">All</li>
+            				    </ul>
+        				    {{/if}}
+    				    </div>
+    				    <div class="col-md-2 menu_filter" style="max-width: 125px">
+    				        <p id="timeSupportMenuOption" class="{{getProperty 'selectedTimeSupportMenuOption'}}">
+    				            <i class="{{getProperty 'iconTimeSupportMenuOption'}}"></i> Time overlap
+    				            <i class="fa fa-caret-down"></i>
+    				        </p>
+        				    {{#if getSessionProperty 'isTimeSupportSelected'}}
+            				    <ul id="timeSupportMenuList" class="job_search_options_panel">
+            				        <li class="searchMenuOption" selected="selected" icon="fa fa-check greenClass" value="y">Yes</li>
+            				        <li class="searchMenuOption" selected="selected" icon="fa fa-close redClass" value="n">No</li>
+            				        <li class="searchMenuOption" selected="" icon="" value="">All</li>
+            				    </ul>
+        				    {{/if}}
+    				    </div>
+    				    <div class="col-md-2 menu_filter" style="max-width: 80px">
+    				        <p id="equitySupportMenuOption" class="{{getProperty 'selectedEquitySupportMenuOption'}}">
+    				            <i class="{{getProperty 'iconEquitySupportMenuOption'}}"></i> Equity 
+    				            <i class="fa fa-caret-down"></i>
+    				        </p>
+        				    {{#if getSessionProperty 'isEquitySupportSelected'}}
+            				    <ul id="equitySupportMenuList" class="job_search_options_panel">
+            				        <li class="searchMenuOption" selected="selected" icon="fa fa-check greenClass" value="y">Yes</li>
+            				        <li class="searchMenuOption" selected="selected" icon="fa fa-close redClass" value="n">No</li>
+            				        <li class="searchMenuOption" selected="" icon="" value="">All</li>
+            				    </ul>
+        				    {{/if}}
+    				    </div>
+    				    <div class="col-md-2 menu_filter" style="min-width: 140px; max-width: 140px">
+    				        <p id="countrySupportMenuOption" class="{{getProperty 'selectedCountrySupportMenuOption'}}">
+    				            <i class="{{getProperty 'iconCountrySupportMenuOption'}}"></i> Specific country 
+    				            <i class="fa fa-caret-down"></i>
+    				        </p>
+        				    {{#if getSessionProperty 'isCountrySupportSelected'}}
+            				    <ul id="countrySupportMenuList" class="job_search_options_panel">
+            				        <li class="searchMenuOption" selected="selected" icon="fa fa-check greenClass" value="y">Yes</li>
+            				        <li class="searchMenuOption" selected="selected" icon="fa fa-close redClass" value="n">No</li>
+            				        <li class="searchMenuOption" selected="" icon="" value="">All</li>
+            				    </ul>
+        				    {{/if}}
+    				    </div>
+    				</div>
+    				</div>
+    			{{else}}
+    				<div class="col-md-9 empty_filter"></div>
+				{{/if}}
+				
+				<div class="col-md-3" style="margin-top: 5px;">
+					<a id="advancedSearchText">Advanced search</a>
+				</div>
+						
+		</div>	
+				</form>		
+</template>

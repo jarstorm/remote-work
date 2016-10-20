@@ -1,0 +1,55 @@
+<template name="layout">
+
+
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+          <a class="navbar-brand" href="/"><img src="{{filesPath 'logo_brand.png'}}" height="30" width="107"/></a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">          
+          <li><a href="/" class="{{ isActiveRoute regex='main' }} menu_link">Index</a></li>      
+          <li><a href="/how_it_works" class="{{ isActivePath regex='how_it_works' }} menu_link">How it works</a></li>
+          <li><a href="/pricing" class="{{ isActivePath regex='pricing' }} menu_link">Pricing</a></li>    
+          {{#if isCompanyProfile}}
+            <li><a href="/company_index" class="{{ isActivePath regex='company_index' }} menu_link">Company home</a></li>    
+            <li><a href="/company_profile" class="{{ isActivePath regex='company_profile' }} menu_link">Company profile</a></li>    
+            <li><a href="/new_job" class="{{ isActivePath regex='new_job' }} menu_link">New job</a></li>    
+           {{else}} 
+              {{#if isUserProfile}}
+                <li><a href="/user_index" class="{{ isActivePath regex='user_index' }} menu_link">User home</a></li>
+                <li><a href="/user_profile" class="{{ isActivePath regex='user_profile' }} menu_link">User profile</a></li>    
+              {{/if}}
+          {{/if}}
+        </ul>
+        <ul class="nav navbar-nav navbar-right">          
+          {{#if currentUser}}
+            <li class="dropdown">            
+              <a href="#" class="dropdown-toggle {{ isActivePath regex='login' }} menu_link" data-toggle="dropdown" role="button" aria-expanded="false">Logged as {{login}}<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/changePwd" id="changePasswordButton">Change password</a></li>
+                <li><a href="#" id="logoutButton">Sign out</a></li>                
+              </ul>
+          </li>
+          {{else}}
+            <li>
+              <a href="/login" class="{{ isActivePath regex='login' }} menu_link">Log/Sign in</a>            
+            </li>  
+          {{/if}}  
+        </ul>
+     </div> 
+    </div>
+  </nav>
+
+  {{> yield}}
+  {{> footer}}
+  
+</template>
+

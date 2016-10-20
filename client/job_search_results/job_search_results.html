@@ -1,0 +1,32 @@
+<template name="jobSearchResults">
+	<div class="container">
+		<h1 id="job_search_title">Job search</h1>
+		{{> jobSearchFilters}}		
+		<div class="row">
+			<div class="col-md-12">
+				<hr class="separator">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-9">
+				{{> reactiveTable collection=results settings=settings}}
+			</div>
+			<div class="col-md-3">
+				<p class="text-center" style="font-weight: bold;"><span id="job_search_counter">{{job_count}}</span> jobs found with this criteria</p>
+				<br>
+					<div class="thumbnail bottom-right-shadow" style="background: rgba(238, 238, 238, 0.91);">
+						<p>Looking for a job?</p>
+						<p>You just need to follow this steps:</p>
+						<ul>
+							<li>Make a search</li>
+							<li>Select a job</li>
+							<li>Apply online</li>
+						</ul>
+						<p>It´s free for job applicants.</p>
+					</div>
+			</div>
+		</div>
+  </div>  
+</template>
+
+				

@@ -1,0 +1,48 @@
+<template name="main">
+<!-- Begin page content -->
+	<div id="main_template_background" style="background-image: url('{{filesPath 'body.jpg'}}');">
+    <div class="container">
+      <div class="row">
+       
+      	<div class="main_box col-md-8 col-md-offset-2">
+      		<div id="main_title" class="col-md-12 col-sm-12 col-xs-12">
+      			<h1 id="main_title_text" class="text-center">Find a job and work at home</h1>
+      		</div>
+      		<div class="main_form col-md-12 col-sm-12">
+      			{{> jobSearchInput}}
+      		</div>
+      		<div class="searches_shortcuts col-md-12 col-sm-12 col-xs-12">
+      		    <div class="first_block col-md-12 col-sm-12 col-xs-12">
+          			<div class="last_searches_content col-md-12 col-sm-12 col-xs-12">
+          			    <p>By technology:&nbsp;&nbsp;</p> 
+          			    <p><a href="/job_search_results/Java">Java</a>&nbsp;&#8231;&nbsp; </p>
+          			    <p><a href="/job_search_results/IOS">IOS</a>&nbsp;&#8231;&nbsp;</p>
+          			    <p><a href="/job_search_results/C++">C++</a>&nbsp;&#8231;&nbsp; </p>
+          			    <p><a href="/job_search_results/Rails">Rails</a>&nbsp;&#8231;&nbsp;</p>
+          			    <p><a href="/job_search_results/Android">Android</a>&nbsp;&#8231;&nbsp;</p>
+          			    <p><a href="/job_search_results/Angular">Angular</a>&nbsp;&#8231;&nbsp;</p>
+          			    <p><a href="/job_search_results/Bootstrap">Bootstrap</a>&nbsp;&#8231;&nbsp;</p>
+          			    <p><a href="/job_search_results/Javascript">Javascript</a></p>
+          			</div>
+          		</div>
+          		<div class="second_block col-md-12 col-sm-12">
+          			 <div class="last_searches_content col-md-12 col-sm-12 col-xs-12">
+          			     <p>By job type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+          			    <p><a href="/job_search_results/Senior%20Developer">Senior Developer</a>&nbsp;&#8231;&nbsp;</p> 
+          			    <p><a href="/job_search_results/Junior%20Developer">Junior Developer</a>&nbsp;&#8231;&nbsp;</p> 
+          			    <p><a href="/job_search_results/Team%20Leader">Team Leader</a>&nbsp;&#8231;&nbsp;</p>
+          			    <p><a href="/job_search_results/Designer">Designer</a>&nbsp;&#8231;&nbsp;</p>
+          			    <p><a href="/job_search_results/Marketing">Marketing</a></p>
+          			   </div>
+      			</div>
+      		</div>
+      		<div class="col-md-12 last_jobs">
+      			{{> latestPublishedJobs }}
+      		</div>
+      		
+      	</div>
+      	
+	  </div>
+    </div>
+    </div>
+</template>

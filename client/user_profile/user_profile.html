@@ -1,0 +1,46 @@
+<template name="userProfile">
+	<div class="container">
+		<legend>Update user profile</legend>
+		<form id="userForm">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label class="control-label">User name</label>
+						<input type="text" id="user_profile_name" name="name" class="form-control" placeholder="" value="{{user.name}}"/>
+					</div>	
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label class="control-label">Email</label>
+						<input type="text" id="user_profile_email" name="email" class="form-control" placeholder="" value="{{user.email}}"/>
+					</div>
+				</div>	
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label class="control-label">Linkedin</label>
+						<input type="text" id="user_profile_linkedin" class="form-control" placeholder="" value="{{user.linkedin}}"/>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label class="control-label">Twitter</label>
+						<input type="text" id="user_profile_twitter" class="form-control" placeholder="" value="{{user.twitter}}"/>
+					</div>
+				</div>
+			</div>	
+			<div class="form-group">
+				<label class="control-label">Description</label><br>
+				<textarea class="form-control" id="user_profile_description" name="content">{{{user.description}}}</textarea>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<button type="submit" id="user_form_bsubmit" class="btn btn-primary pull-right">Update</button>
+				</div> 
+			</div>	
+		</form>
+	</div>
+</template>

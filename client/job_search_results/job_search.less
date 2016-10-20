@@ -1,0 +1,126 @@
+@import "../vars";
+
+.selected {
+    font-weight: bold;
+}
+
+.searchMenuOption:hover {
+    background: #d6d6d6;
+}
+
+.searchMenuOption {
+    list-style-type: none;
+}
+
+.job_search_options_panel {
+    background: #eee;
+    padding-left: 5px;
+     /* Border radius */
+    -webkit-border-bottom-right-radius: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    -moz-border-radius-bottomright: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+
+    border-bottom: 1px solid #A8A3A3;
+    border-right: 1px solid #A8A3A3;
+    border-left: 1px solid #A8A3A3;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    position:  absolute;
+    min-width: 100px;
+}
+
+.menu_filter {
+    padding-left: 0px;
+    padding-right: 0px;
+    font-size: small;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.job-search-filter-row {
+    background: #eee;
+
+    min-height: 30px;
+    padding-left: 90px;
+
+    /* Border radius */
+    -webkit-border-bottom-right-radius: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    -moz-border-radius-bottomright: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+
+    animation: fadein 500ms;
+    -moz-animation: fadein 500ms; /* Firefox */
+    -webkit-animation: fadein 500ms; /* Safari and Chrome */
+    -o-animation: fadein 500ms; /* Opera */
+    p {
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+}
+
+.empty_filter {
+  min-height: 30px;
+}
+
+#advancedSearchText {
+
+}
+
+#job_search_title {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#job_search_counter {
+    font-size: 40px;
+    color: @font_color;
+}
+
+@keyframes fadein {
+  from {
+    opacity:0;
+  }
+  to {
+    opacity:1;
+  }
+}
+@-moz-keyframes fadein { /* Firefox */
+  from {
+    opacity:0;
+  }
+  to {
+    opacity:1;
+  }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+  from {
+    opacity:0;
+  }
+  to {
+    opacity:1;
+  }
+}
+@-o-keyframes fadein { /* Opera */
+  from {
+    opacity:0;
+  }
+  to {
+    opacity: 1;
+  }
+}​
+
+.redClass {
+  color: #F00;
+}
+
+.greenClass {
+  color: #0F0;
+}
+

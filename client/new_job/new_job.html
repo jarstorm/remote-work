@@ -1,0 +1,29 @@
+<template name="newJob">
+	<div class="container">
+	{{#if company.name}}
+		<div class="row" id="newJobFormDiv">
+			<div class="col-md-2">
+				<button class="btn btn-primary navigator col-md-12" stepid="step1">Job data</button>
+				<button class="btn btn-primary navigator col-md-12 {{stepReached 'newJobSetp2navigatorClass'}}" {{stepEnabled 'newJobSetp2navigatorClass'}} stepid="step2">Preview</button>
+				<button class="btn btn-primary navigator col-md-12 {{stepReached 'newJobSetp3navigatorClass'}}" {{stepEnabled 'newJobSetp3navigatorClass'}} stepid="step3">Payment</button>
+			</div>
+			<div class="col-md-10">
+				<fieldset id="step1">
+		    		<legend>Basic data</legend>
+	    			{{> newJobData }}
+		    	</fieldset>
+		    	<fieldset id="step2">
+		    		<legend>Preview</legend>
+		    		{{> newJobPreview }}
+		    	</fieldset>
+		    	<fieldset id="step3">
+		    	<legend>Payment</legend>
+		    		{{> newJobPayment }}
+		    	</fieldset>
+	    	</div>
+    	</div>
+	{{else}}
+		<h1 style="color: #f00">You should edit your profile before insert a new job</h1>
+	{{/if}}
+	</div>
+</template>

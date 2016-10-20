@@ -1,0 +1,31 @@
+<template name="companyProfile">
+    <div class="row">
+    	{{#if company.name}}
+			<h1 id="company_title">{{company.name}}</h1>
+			<div class="col-lg-4">
+					<legend style="margin-bottom: 10px;">Company profile</legend>
+			    {{#if company.website}}
+			    	<p><a href="http://{{company.website}}" target="_blank" class="secondary_link ellipsis_text"><span class="fa fa-link"></span> {{company.website}}</a></p>
+			    {{/if}}
+			    <p><a href="mailto:{{company.email}}" class="secondary_link ellipsis_text"><span class="fa fa-envelope"></span> {{company.email}}</a></p>
+			    {{#if company.type}}
+			    	<p><span class="fa fa-sitemap"></span> {{company.type}}</p>
+			    {{/if}}
+			    {{#if company.linkedin}}
+			    	<p><a href="http://{{company.linkedin}}" target="_blank" class="secondary_link ellipsis_text"><span class="fa fa-linkedin"></span> {{company.linkedin}}</a></p>
+			    {{/if}}
+			    {{#if company.twitter}}
+			    	<p><a href="http://{{company.twitter}}" target="_blank" class="secondary_link ellipsis_text"><span class="fa fa-twitter"></span> {{company.twitter}}</a></p>
+			    {{/if}}
+		  </div>
+	    <div class="col-lg-8">
+				<legend style="margin-bottom: 10px;">About the company</legend>
+	    	<p>{{{company.description}}}</p>
+	    </div>
+	    {{else}}
+			<legend style="margin-bottom: 10px;">Company profile</legend>
+	    	<h1 style="color: #f00">You should edit your profile</h1>
+	    {{/if}}
+    </div>
+		<br>
+</template>

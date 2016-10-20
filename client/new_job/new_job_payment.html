@@ -1,0 +1,60 @@
+<template name="newJobPayment">
+    <p class="text-center" id="job_payment_title">Select your plan</p>
+    <br>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <button class="btn btn-default payment_button col-md-12 col-sm-12 col-xs-12 shadow-border" id="payment_button_basic">
+                    <p>Basic</p>
+                    <p><span class="fa fa-dollar"></span>50</p>
+                </button>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <button class="btn btn-default payment_button col-md-12 col-sm-12 col-xs-12 shadow-border" id="payment_button_recommended">
+                    <p>Recommended</p>
+                    <p><span class="fa fa-dollar"></span>80</p>
+                </button>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <button class="btn btn-default payment_button col-md-12 col-sm-12 col-xs-12 shadow-border" id="payment_button_advanced">
+                    <p>Advanced</p>
+                    <p><span class="fa fa-dollar"></span>100</p>
+                </button>
+            </div>
+        </div>
+    </div>
+    <p class="text-center"><p>Your job will be seen for <span id="selected_plan_days">{{days}}</span> days</p></p>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="col-md-8">
+                <div class="input-group">
+                    <input id="new_job_payment_code" type="text" class="form-control" placeholder="Discount code" />
+                    <span class="input-group-addon">
+                        <i class="{{getSessionProperty 'validateNewJobIcon'}}"></i>
+                    </span>
+                </div>            
+            </div>
+            <div class="col-md-4">
+                <button id="new_job_validate_code" class="btn btn-default pull-left">Validate</button>
+            </div> 
+        </div>
+        <div class="col-md-6">
+            <div class="col-md-10 col-md-offset-2">
+                <p id="total_amount_p" class="shadow-border">
+                    Total amount: <span id="total_amount"><span class="fa fa-dollar"></span>{{total_amount}}</span>
+                </p>
+            </div>
+            <div class="checkbox col-md-7 pull-right">
+                <label>
+                    <input type="checkbox" value="" id="new_job_payment_accept">
+                        I accept the <a href="/terms" target="_blank">terms and conditions</a>
+                </label>
+            </div>    
+        </div>
+    </div>
+    <div class="row">
+        <button class="btn btn-default navigator col-md-2 pull-left" stepid="step2">Previous</button>
+        <button id="addNewJobFinish" class="btn btn-primary col-md-2 pull-right" {{isDisabled}}>Finish</button>
+    </div>
+</template>

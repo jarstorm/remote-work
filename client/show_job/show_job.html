@@ -1,0 +1,80 @@
+<template name="showJob">
+    <div class="container">
+        {{#if job}}
+        <div class="row">
+            <div class="col-lg-8">
+                <h1 id="job_title">{{job.title}}</h1>
+                <a href="/show_company/{{job.company_id}}" id="company_link" class="secondary_link">{{job.company_name}}</a>
+                <br>
+                <h2>Job description</h2>
+                <p>{{{job.description}}}</p>
+                <h2>Required skills</h2>
+                <p>{{{job.required_skills}}}</p>
+                {{#if hasDesiredSkills}}
+                    <h2>Desired skills</h2>
+                    <p>{{{job.desired_skills}}}</p>
+                {{/if}}
+                <br>
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default" style="margin-top: 20px">
+                    <div class="panel-heading">
+                        <h2 class="show_job_panel_title">Job details</h2>
+                    </div>
+                    <div class="panel-body">
+                        <p><span class="fa fa-calendar"></span> Published: <b>{{prettifyDate job.created_on}}</b></p>
+                        <p><span class="fa fa-money"></span>  Salary: <b>{{{showSalary job.salary job.salary_currency}}}</b></p>
+                        <p><span class="fa fa-file-o"></span> Contract type:
+                            <b>{{job.contract_type}}</b>
+                            {{#if isContract job.contract_type}}
+                              <b> - {{job.contract_period}}</b>
+                            {{/if}}
+                        </p>
+                        <hr>                       
+                {{#if job.office_support}}
+                    <p><span class="fa fa-building"></span> Office, HW and SW support: <b>{{job.office_support_text}}</b></p>
+                {{/if}}
+                {{#if job.overlap}}
+                    <p><span class="fa fa-clock-o"></span> Time overlap required: <b>{{job.overlap_text}}</b></p>
+                {{/if}}
+                {{#if job.training}}
+                    <p><span class="fa fa-book"></span> Training: <b>{{job.training_text}}</b></p>
+                {{/if}}
+                {{#if job.travel}}
+                    <p><span class="fa fa-plane"></span> Travel: <b>{{job.travel_text}}</b></p>
+                {{/if}}
+                {{#if job.equity}}
+                    <p><span class="fa fa-pie-chart"></span> Equity: <b>{{job.equity_value}} %</b></p>
+                {{/if}}
+                {{#if job.country}}
+                    <p><span class="fa fa-location-arrow"></span> Specific country: <b>{{job.country_text}}</b></p>
+                {{/if}}
+                {{#if job.ask_linkedin}}
+                    <p><span class="fa fa-linkedin"></span> Please provide your linkedin account</p>
+                {{/if}}
+                {{#if job.ask_github}}
+                    <p><span class="fa fa-github"></span> Please provide your github profile</p>
+                {{/if}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="show_job_panel_title">How to apply</h2>
+                    </div>
+                    <div class="panel-body">
+                        {{# if applyWithMail job.apply}}
+                            <p>Please send and email to <a href="mailto:{{job.apply_text}}" class="secondary_link">{{job.apply_text}}</a></p>
+                        {{else}}
+                            <p>Please use this <a href="{{job.apply_text}}" class="secondary_link" target="_blank">link</a></p>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{else}}
+            {{>notFound}}
+        {{/if}}
+    </div>
+</template>

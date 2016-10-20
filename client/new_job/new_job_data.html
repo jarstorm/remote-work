@@ -1,0 +1,211 @@
+<template name="newJobData">
+	<form id="new_job_form" action="#">
+		<div class="row">
+			<div class="col-md-6">
+			    <div class="row form-group">
+					<label class="control-label col-md-6">Job title</label>
+					<div class="col-md-12">
+						<input type="text" class="form-control" id="new_job_title" name="new_job_title" placeholder="Java developer, Software Architect..." value="{{job.title}}"/>
+					</div>
+				</div>	
+			</div>
+			<div class="col-md-6">
+				<div class="row form-group">
+					<label class="control-label col-md-12">Salary</label>
+					<div class="col-md-12">
+						<div class="input-group">
+							<input type="text" class="form-control" id="new_job_salary" name="new_job_salary" placeholder="Not specified">
+							<span class="input-group-btn">
+								<select id="salary_option_button" class="btn btn-primary">
+								  <option value="usd">USD</option>
+								  <option value="euro">EURO</option>
+								  <option value="gbp">GBP</option>
+								</select>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+		<div class="row form-group" id="new_job_description_div">
+			<label class="col-lg-12 control-label">Job description</label>
+			<div class="col-lg-12">
+				<textarea class="form-control summernote-big" id="new_job_description" name="new_job_description"></textarea>
+			</div>
+		</div>
+		<div class="row form-group" id="new_job_required_skills_div">
+			<label class="col-lg-12 control-label">Required skills</label>
+			<div class="col-lg-12">
+				<textarea class="form-control summernote-small" id="new_job_required_skills" name="new_job_required_skills"></textarea>
+			</div>
+		</div>
+		<div class="row form-group">
+			<label class="col-lg-12 control-label">Desired skills</label>
+			<div class="col-lg-12">
+				<div class="form-control summernote-small" id="new_job_desired_skills"></div>
+			</div>
+		</div>
+		<div class="row form-group">
+			<label class="col-lg-12 control-label">Contract type</label>
+			<div class="col-lg-12">
+				<div class="row">
+					<div class="col-lg-6">
+						<select class="form-control" id="new_job_contract_type" onchange="NewJobBasicDataHelpers.showContractSelect()">
+							<option>Long term</option>
+							<option>Contract</option>			
+					    </select>
+				    </div>
+				    <div class="col-lg-6">
+						<select class="form-control" id="new_job_contract_period">
+							<option>Less than 6 months</option>
+							<option>6 - 12 months</option>			
+							<option>More than 12 months</option>			
+					    </select>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row form-group">
+			<label class="col-lg-12 control-label">How to apply</label>
+			<div class="col-lg-12">
+				<div class="row">
+					<div class="col-lg-6">
+						<select class="form-control" id="new_job_apply">
+							<option value="email">Email</option>
+							<option value="link">Custom link</option>			
+					    </select>
+				    </div>
+				    <div class="col-lg-6">
+						<input id="new_job_apply_text" type="text" class="form-control col-md-8" placeholder="http://..." value="{{company.email}}" />
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<br>
+		<legend>Advanced data</legend>
+		
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group" >  	
+					<div class="checkbox">	
+						<label>	  
+							<input type="checkbox" value="" id="new_job_office_support"
+								onclick="$('#new_job_office_support_text').prop('disabled', !$('#new_job_office_support').prop('checked'));">
+								Office, HW and SW support		  
+						</label>
+					</div>		
+					<div class="">
+						<input id="new_job_office_support_text" type="text" class="form-control col-md-8" placeholder="Laptop, 1000$..." disabled/>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-6">
+				<div class="form-group">  	
+					<div class="checkbox">
+						<label>
+						<input type="checkbox" value="" id="new_job_travel" 
+							onclick="$('#new_job_travel_text').prop('disabled', !$('#new_job_travel').prop('checked'));">
+						Travel
+						</label>
+					</div>
+					<div class="">
+						<input id="new_job_travel_text" type="text" class="form-control" placeholder="10%, one week per month.." disabled/>
+					</div>
+				</div>	
+			</div>  
+		</div>  
+		
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">  
+			  		<div class="checkbox">
+						<label>
+							<input type="checkbox" value=""  id="new_job_training" 
+								onclick="$('#new_job_training_text').prop('disabled', !$('#new_job_training').prop('checked'));">
+							Training
+						</label>
+			  		</div>
+			  		<div class="">
+			  			<input id="new_job_training_text" type="text" class="form-control" placeholder="Books, Courses.." disabled/>
+			  		</div>
+			  	</div>
+		  	</div>
+		  	<div class="col-md-6">
+		  		<div class="form-group">  		
+					<div class="checkbox">
+				  		<label>
+							<input type="checkbox" value="" id="new_job_overlap" 
+							onclick="$('#new_job_overlap_text').prop('disabled', !$('#new_job_overlap').prop('checked'));">
+							Time overlap
+					  	</label>
+		  			</div>
+		  			<div class="">
+		  				<input id="new_job_overlap_text" type="text" class="form-control" placeholder="4 hours in GMT+1..." disabled/>
+		  			</div>
+		  		</div>
+			</div>
+		</div>
+		
+	
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">  		
+					<div class="checkbox">
+						<label>
+						<input type="checkbox" value="" id="new_job_equity" 
+							onclick="$('#new_job_equity_text').prop('disabled', !$('#new_job_equity').prop('checked'));">
+						Equity
+						</label>
+					</div>
+					<div class="">
+						<div class="input-group">
+							<input id="new_job_equity_text" type="text" class="form-control" placeholder="" disabled/>
+							<span class="input-group-addon">%</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">  	
+					<div class="checkbox">
+						<label>
+						<input type="checkbox" value="" id="new_job_country" 
+							onclick="$('#new_job_country_text').prop('disabled', !$('#new_job_country').prop('checked'));">
+						Specific country
+						</label>
+					</div>
+					<div class="">
+						<input id="new_job_country_text" type="text" class="form-control" placeholder="" disabled/>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6">
+		  		<div class="checkbox">
+			  		<label>
+						<input type="checkbox" value="" id="new_job_linkedin">
+						Ask for linkedin profile
+			  		</label>
+		  		</div>
+		  	</div>
+			<div class="col-md-6">
+		  		<div class="checkbox">
+			  		<label>
+						<input type="checkbox" value="" id="new_job_github">
+						Ask for github profile
+			  		</label>
+		  		</div>
+		  	</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-12">
+		  		<button type="submit" class="btn btn-primary navigator col-md-2 pull-right" stepid="step2">Next</button>
+		  	</div>
+		</div>
+	  </form>
+</template>

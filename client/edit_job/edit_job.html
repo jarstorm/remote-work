@@ -1,0 +1,225 @@
+<template name="editJob">
+    <div class="container">
+    	<form id="edit_job_form" action="#">
+    	<legend>Edit job information</legend>
+    	<div class="row">
+			<div class="col-md-6">
+			    <div class="row form-group">
+					<label class="control-label col-md-6">Job title</label>
+					<div class="col-md-12">
+						<input type="text" class="form-control" id="edit_job_title" name="edit_job_title" placeholder="Java developer, Software Architect..." value="{{job.title}}"/>
+					</div>
+				</div>	
+			</div>
+			<div class="col-md-6">
+				<div class="row form-group">
+					<label class="control-label col-md-12">Salary</label>
+					<div class="col-md-12">
+						<div class="input-group">
+							<input type="text" class="form-control" id="edit_job_salary" name="edit_job_salary" placeholder="Not specified" value="{{job.salary}}">
+							<span class="input-group-btn">
+								<select id="salary_option_button" class="btn btn-primary">
+								  <option value="usd" {{optionSelected "usd" job.salary_currency}}>USD</option>
+								  <option value="euro" {{optionSelected "euro" job.salary_currency}}>EURO</option>
+								  <option value="gbp" {{optionSelected "gbp" job.salary_currency}}>GBP</option>
+								</select>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+		
+		<div class="row form-group" id="edit_job_description_div">
+			<label class="col-lg-12 control-label">Job description</label>
+			<div class="col-lg-12">
+				<div class="form-control summernote-big" id="edit_job_description" name="edit_job_description">{{{job.description}}}</div>
+			</div>
+		</div>
+		<div class="row form-group" id="edit_job_required_skills_div">
+			<label class="col-lg-12 control-label">Required skills</label>
+			<div class="col-lg-12">
+				<div class="form-control summernote-small" id="edit_job_required_skills" name="edit_job_required_skills">{{{job.required_skills}}}</div>
+			</div>
+		</div>
+		<div class="row form-group">
+			<label class="col-lg-12 control-label">Desired skills</label>
+			<div class="col-lg-12">
+				<div class="form-control summernote-small" id="edit_job_desired_skills" name="edit_job_desired_skills">{{{job.desired_skills}}}</div>
+			</div>
+		</div>
+		<div class="row form-group">
+			<label class="col-lg-12 control-label">Contract type</label>
+			<div class="col-lg-12">
+				<div class="row">
+					<div class="col-lg-6">
+						<select class="form-control" id="edit_job_contract_type">
+							<option {{optionSelected "Long term" job.contract_type}}>Long term</option>
+							<option {{optionSelected "Contract" job.contract_type}}>Contract</option>
+					    </select>
+				    </div>
+				    <div class="col-lg-6">
+						<select class="form-control" id="edit_job_contract_period">
+							<option {{optionSelected "Less than 6 months" job.contract_period}}>Less than 6 months</option>
+							<option {{optionSelected "6 - 12 months" job.contract_period}}>6 - 12 months</option>
+							<option {{optionSelected "More than 12 months" job.contract_period}}>More than 12 months</option>
+					    </select>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row form-group">
+			<label class="col-lg-12 control-label">How to apply</label>
+			<div class="col-lg-12">
+				<div class="row">
+					<div class="col-lg-6">
+						<select class="form-control" id="edit_job_apply">
+							<option value="email" {{optionSelected "email" job.apply}}>Email</option>
+							<option value="link" {{optionSelected "link" job.apply}}>Custom link</option>			
+					    </select>
+				    </div>
+				    <div class="col-lg-6">
+						<input id="edit_job_apply_text" type="text" class="form-control col-md-8" placeholder="http://..." value="{{job.apply_text}}" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+		<legend>Advanced data</legend>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group" >  	
+					<div class="checkbox">	
+						<label>	  
+							<input type="checkbox" value="" id="edit_job_office_support"
+								onclick="$('#edit_job_office_support_text').prop('disabled', !$('#edit_job_office_support').prop('checked'));"
+								checked="{{job.office_support}}">
+								Office, HW and SW support		  
+						</label>
+					</div>		
+					<div class="">
+						<input id="edit_job_office_support_text" type="text" class="form-control col-md-8" placeholder="Laptop, 1000$..." 
+							{{isEnabled job.office_support}} value="{{job.office_support_text}}"/>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-6">
+				<div class="form-group">  	
+					<div class="checkbox">
+						<label>
+						<input type="checkbox" value="" id="edit_job_travel" 
+							onclick="$('#edit_job_travel_text').prop('disabled', !$('#edit_job_travel').prop('checked'));"
+							checked="{{job.travel}}">
+						Travel
+						</label>
+					</div>
+					<div class="">
+						<input id="edit_job_travel_text" type="text" class="form-control" placeholder="10%, one week per month.." 
+							{{isEnabled job.travel}} value="{{job.travel_text}}"/>
+					</div>
+				</div>	
+			</div>  
+		</div>  
+		
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">  
+			  		<div class="checkbox">
+						<label>
+							<input type="checkbox" value=""  id="edit_job_training" 
+								onclick="$('#edit_job_training_text').prop('disabled', !$('#edit_job_training').prop('checked'));"
+								checked="{{job.training}}">
+							Training
+						</label>
+			  		</div>
+			  		<div class="">
+			  			<input id="edit_job_training_text" type="text" class="form-control" placeholder="Books, Courses.." 
+			  				{{isEnabled job.training}} value="{{job.training_text}}"/>
+			  		</div>
+			  	</div>
+		  	</div>
+		  	<div class="col-md-6">
+		  		<div class="form-group">  		
+					<div class="checkbox">
+				  		<label>
+							<input type="checkbox" value="" id="edit_job_overlap" 
+							onclick="$('#edit_job_overlap_text').prop('disabled', !$('#edit_job_overlap').prop('checked'));"
+							checked="{{job.overlap}}">
+							Time overlap
+					  	</label>
+		  			</div>
+		  			<div class="">
+		  				<input id="edit_job_overlap_text" type="text" class="form-control" placeholder="4 hours in GMT+1..." 
+		  					{{isEnabled job.overlap}} value="{{job.overlap_text}}"/>
+		  			</div>
+		  		</div>
+			</div>
+		</div>
+		
+	
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">  		
+					<div class="checkbox">
+						<label>
+						<input type="checkbox" value="" id="edit_job_equity" 
+							onclick="$('#edit_job_equity_text').prop('disabled', !$('#edit_job_equity').prop('checked'));"
+							checked="{{job.equity}}">
+						Equity
+						</label>
+					</div>
+					<div class="">
+						<div class="input-group">
+							<input id="edit_job_equity_text" type="text" class="form-control" placeholder="" 
+								{{isEnabled job.equity}} value="{{job.equity_value}}"/>
+							<span class="input-group-addon">%</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">  	
+					<div class="checkbox">
+						<label>
+						<input type="checkbox" value="" id="edit_job_country" 
+							onclick="$('#edit_job_country_text').prop('disabled', !$('#edit_job_country').prop('checked'));"
+							checked="{{job.country}}">
+						Specific country
+						</label>
+					</div>
+					<div class="">
+						<input id="edit_job_country_text" type="text" class="form-control" placeholder="" 
+							{{isEnabled job.country}} value="{{job.country_text}}"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6">
+		  		<div class="checkbox">
+			  		<label>
+						<input type="checkbox" value="" id="edit_job_linkedin" checked="{{job.ask_linkedin}}">
+						Ask for linkedin profile
+			  		</label>
+		  		</div>
+		  	</div>
+			<div class="col-md-6">
+		  		<div class="checkbox">
+			  		<label>
+						<input type="checkbox" value="" id="edit_job_github" checked="{{job.ask_github}}">
+						Ask for github profile
+			  		</label>
+		  		</div>
+		  	</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-12">
+		  		<button id="edit_job_submit_button" type="submit" class="btn btn-primary col-md-2 pull-right">Update</button>
+		  	</div>
+		</div>
+	  </form>
+    </div>
+</template>

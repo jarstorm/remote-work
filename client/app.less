@@ -1,0 +1,284 @@
+@import "vars";
+
+/* placeholder */
+.form-control::-webkit-input-placeholder { /* WebKit browsers */
+    color:    @placeholder_font;
+}
+.form-control::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    @placeholder_font;
+   opacity:  1;
+}
+.form-control::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    @placeholder_font;
+   opacity:  1;
+}
+.form-control::-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:    @placeholder_font;
+}
+
+
+html{
+	height: 100%;
+}
+body{
+	height: 100%;
+	background-color: #FFFFFF;
+}
+.container{
+	min-height: calc(~"100% - 50px - @{footer-height}");/*60 px from footer and 50px from header*/
+}
+.navbar {
+	background: @header_color_1; /* Old browsers */
+	background: -moz-linear-gradient(top,  @header_color_1 0%, @header_color_2 55%, @header_color_2 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@header_color_1), color-stop(55%,@header_color_2), color-stop(100%,@header_color_2)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  @header_color_1 0%,@header_color_2 55%,@header_color_2 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  @header_color_1 0%,@header_color_2 55%,@header_color_2 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  @header_color_1 0%,@header_color_2 55%,@header_color_2 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  @header_color_1 0%,@header_color_2 55%,@header_color_2 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@header_color_1', endColorstr='@header_color_2',GradientType=0 ); /* IE6-9 */
+}
+.navbar {
+	margin-bottom: 0px;
+}
+.navbar-brand {
+	color: #FFFFFF !important;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-weight: bold;
+    padding-top: 5px;
+}
+.navbar li a.menu_link {
+	color: #FFFFFF;
+	font-weight: bold;
+}
+.navbar li.active a {
+	color: #000000 !important;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+	background-color: rgba(231, 231, 231, 0.8);
+}
+
+#main_title {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+#main_title_text {
+    font-size: 50px;
+}
+
+#main_template_background {
+	/* pixabay */
+	background-size: cover;
+	min-height: calc(~"100% - 50px - @{footer-height}");/*60 px from footer and 50px from header*/
+}
+
+.navbar {
+	border-width: 0 0 0px;
+	border-radius: 0px;
+}
+
+.primary_link {
+	color: @primary_link_color;
+	font-weight: bold;
+}
+
+.secondary_link {
+	color: @secondary_link_color;
+	&:hover{
+		color: @secondary_link_hover_color;
+	}
+}
+
+#index_left_content {
+	margin-top: 16%;
+}
+.list-group-item.today {
+	background-color: #F8EEA5 !important;
+	font-weight: bold;
+}
+.navbar a.active{
+	background-color: @navbar-active-background;
+	color: #000000 !important;
+}
+.btn-primary{
+	background-color: @font_color;
+	border-color: @font_color;
+}
+.btn-primary[disabled]{
+	background: @btn_background_disabled;
+	border: 0px;
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus{
+	background-color: #226B14;
+	border-color: #226B14;
+}
+.wizard > .actions a{
+	background-color: @font_color;
+}
+.wizard > .actions a:hover,
+.wizard > .actions a:active,
+.wizard > .actions a:focus{
+	background-color: #226B14;
+}
+.padding-cero{
+	padding: 0;
+}
+
+/*Styles for main page*/
+.separator {
+	border-top: 1px solid #A8A8A8;
+}
+
+.main_box{
+	background-color: rgba(238, 238, 238, 0.91);
+	border-radius: 7px;
+	margin-top: 5%;
+	h1{
+		margin-top: 25px;
+		font-size: 20px;
+		font-weight: bold;
+	}
+	a{
+		.secondary_link;
+	}
+	.btn{
+		width: 100%;
+	}
+	.searches_shortcuts{
+		.first_block{
+			margin-top: 15px;
+		}
+		p{
+			color: @font_color_basic;
+			font-weight: bold;
+			font-size: 13px;
+			margin-bottom: 5px;
+		}
+		a{
+			font-size: 12px;
+		}
+		.last_searches_content{
+			p{
+				float: left;
+				padding-left: 0px;
+			}
+		}
+	}
+	.last_jobs {
+		margin-bottom: 10px;
+	}
+
+	ul.list-group{
+		li.list-group-item{
+			list-style: none;
+			border-radius: 7px;
+			margin-bottom: 10px;
+			background: rgba(255, 255, 255, 0.71);
+			.title{
+				a{
+					color: @font_color;
+					font-size: 17px;
+				}
+			}
+			.content{
+				.company {
+					padding-left: 0px;
+				}
+				.date{
+					color:@font_color_basic;
+					font-size: 12px;
+					padding-right: 0px;
+				}
+			}
+		}
+	}
+	 .view_all{
+	 	padding-bottom: 10px;
+	 	a{
+	 		text-decoration: underline;
+			font-weight: bold;
+			font-size: 12px;
+	 	}
+	 }
+}
+
+/*End of styles for main*/
+
+/*Styles for the forms*/
+.form-group .col-lg-8{
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
+.wizard > .content{
+	overflow: hidden;
+}
+.wizard > .content > .body{
+	width: 100%;
+	padding-right: 0px;
+}
+.wizard > .content > .body input,
+.wizard > .content > .body select,
+.wizard > .content > .body textarea{
+	border: 1px solid #226B14;
+}
+/*End of styles for the forms*/
+
+.navbar>li>a.menu_link.active {
+	color: #000000;
+	font-weight: bold;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+	background-color: @font_color;
+	color: #FFFFFF;
+}
+
+#login-dropdown-list a.dropdown-toggle {
+	color: #FFFFFF;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-weight: bold;
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+	color: #000000 !important;
+}
+
+
+/* Problem with wysiwyg ul's */
+.note-editable {
+	padding-left: 20px !important;
+}
+
+a {
+	.secondary_link;
+}
+
+
+#just-verified-dismiss-button {
+	background-color: @font_color;
+}
+
+.table_cell_ellipsis_text {
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: top;
+}
+
+
+.ellipsis_text {
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+}
